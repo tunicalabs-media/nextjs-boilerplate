@@ -11,7 +11,6 @@ export default function NotFound() {
       </p>
       <Button asChild className="mt-8">
         <Link href="/">Go Home</Link>
-        Go Home
       </Button>
     </div>
   );
