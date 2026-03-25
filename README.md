@@ -25,14 +25,54 @@ A production-oriented starter built on **Next.js 16 + App Router** with **TypeSc
 - Node.js **20.9+** (recommended: latest Node 20 LTS)
 - npm (project currently uses `package-lock.json`)
 
-## Quick start
+### Use This As a Template
+
+You can bootstrap a new project using this repository as a Next.js template.
+
+> Note: Run these commands in an empty folder (or use a new folder name instead of `.`).
+
+**npm**
+
+```bash
+npx create-next-app@latest . -e https://github.com/Mridul2820/next-template
+```
+
+**yarn**
+
+```bash
+yarn create next-app . -e https://github.com/Mridul2820/next-template
+```
+
+**pnpm**
+
+```bash
+pnpm create next-app . -e https://github.com/Mridul2820/next-template
+```
+
+**bun**
+
+```bash
+bunx create-next-app@latest . -e https://github.com/Mridul2820/next-template
+```
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
 
 ```bash
 npm install
+```
+
+### Development
+
+Run the development server:
+
+```bash
 npm run dev
 ```
 
-App runs at [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) to view your application.
 
 ## Available scripts
 
