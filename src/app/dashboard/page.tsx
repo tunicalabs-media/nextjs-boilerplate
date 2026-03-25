@@ -14,6 +14,9 @@ import type { Post } from '@/types';
 export const metadata: Metadata = {
   title: 'Dashboard',
   description: 'Server-side data fetching example with Next.js App Router.',
+  alternates: {
+    canonical: '/dashboard',
+  },
 };
 
 /**
