@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { Badge } from '@/components/ui/badge';
@@ -47,6 +48,15 @@ const features = [
     badge: 'CI',
   },
 ];
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description:
+    'Kickstart your app with a production-ready Next.js boilerplate and modern defaults.',
+  alternates: {
+    canonical: '/',
+  },
+};
 
 /**
  * Home page — this is a **server component** by default.
