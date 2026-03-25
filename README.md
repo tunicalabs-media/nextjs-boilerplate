@@ -88,24 +88,27 @@ Open [http://localhost:3000](http://localhost:3000) to view your application.
 ## Project structure
 
 ```text
-src/
-  app/
-    api/health/route.ts     # Route Handler example
-    dashboard/page.tsx      # Server component data fetching example
-    examples/page.tsx       # Client component example ('use client')
-    error.tsx               # Segment error boundary
-    global-error.tsx        # Root-level error UI
-    loading.tsx             # Route loading UI
-    not-found.tsx           # 404 UI
-    layout.tsx              # Root layout
-    page.tsx                # Landing page
-  components/
-    shared/                 # App-level shared UI
-    ui/                     # shadcn/ui components
-  hooks/
-  lib/
-  services/
-  types/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── health/route.ts     # Route Handler example
+│   │   ├── dashboard/page.tsx      # Server component example
+│   │   ├── examples/page.tsx       # Client component example ('use client')
+│   │   ├── error.tsx               # Segment error boundary
+│   │   ├── global-error.tsx        # Root-level error UI
+│   │   ├── loading.tsx             # Route loading UI
+│   │   ├── not-found.tsx           # 404 UI
+│   │   ├── layout.tsx              # Root layout
+│   │   └── page.tsx                # Landing page
+│   ├── components/
+│   │   ├── shared/                 # App-level shared UI
+│   │   └── ui/                     # shadcn/ui components
+│   ├── hooks/
+│   ├── lib/
+│   ├── services/
+│   └── types/
+├── public/                         # Static assets
+└── components.json                 # shadcn/ui configuration
 ```
 
 ## Development conventions in this boilerplate

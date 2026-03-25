@@ -18,13 +18,8 @@ export function Header() {
 
         <nav className="flex items-center gap-1">
           {navItems.map((item) => (
-            <Button
-              key={item.href}
-              render={<Link href={item.href} />}
-              variant="ghost"
-              size="sm"
-            >
-              {item.label}
+            <Button key={item.href} asChild variant="ghost" size="sm">
+              <Link href={item.href}>{item.label}</Link>
             </Button>
           ))}
         </nav>

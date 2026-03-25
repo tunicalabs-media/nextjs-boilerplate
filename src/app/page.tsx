@@ -70,7 +70,6 @@ export default function HomePage() {
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button asChild size="lg">
             <Link href="/dashboard">View Dashboard</Link>
-            View Dashboard
           </Button>
           <Button asChild variant="outline" size="lg">
             <Link href="/examples">See Examples</Link>
