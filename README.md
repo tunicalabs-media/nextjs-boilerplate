@@ -34,25 +34,25 @@ You can bootstrap a new project using this repository as a Next.js template.
 **npm**
 
 ```bash
-npx create-next-app@latest . -e https://github.com/Mridul2820/next-template
+npx create-next-app@latest . -e https://github.com/tunicalabs-media/nextjs-boilerplate
 ```
 
 **yarn**
 
 ```bash
-yarn create next-app . -e https://github.com/Mridul2820/next-template
+yarn create next-app . -e https://github.com/tunicalabs-media/nextjs-boilerplate
 ```
 
 **pnpm**
 
 ```bash
-pnpm create next-app . -e https://github.com/Mridul2820/next-template
+pnpm create next-app . -e https://github.com/tunicalabs-media/nextjs-boilerplate
 ```
 
 **bun**
 
 ```bash
-bunx create-next-app@latest . -e https://github.com/Mridul2820/next-template
+bunx create-next-app@latest . -e https://github.com/tunicalabs-media/nextjs-boilerplate
 ```
 
 ### Installation
