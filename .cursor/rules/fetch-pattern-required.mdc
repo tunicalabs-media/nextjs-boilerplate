@@ -1,0 +1,12 @@
+---
+description: Require FETCH_PATTERN for data, metadata, and API work
+alwaysApply: true
+---
+
+# Fetch Pattern Required
+
+- For any task involving data fetching, metadata generation, ISR/revalidate behavior, API endpoints, or server-side composition:
+  - Read `.agents/skills/fetch-pattern/SKILL.md` before making changes.
+  - Follow these conventions for shared fetch helpers, caching, `Promise.all`, and metadata mapping.
+- Keep fetch logic server-first unless interactivity requires client-side fetching.
+- Prefer consistent return shapes and typed responses.

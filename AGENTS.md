@@ -25,6 +25,25 @@ Follow these instructions before making changes, while implementing, and before 
 2. Inspect relevant files before editing (`package.json`, route files, configs).
 3. Confirm whether code is Server Component or Client Component before adding hooks or browser APIs.
 4. If behavior is unclear, consult authoritative docs first (see references below).
+5. Read and apply local agent skills under `.agents/skills/` relevant to the task.
+6. For any data-fetching, metadata, ISR, or API-layer work, read and follow `.agents/skills/fetch-pattern/SKILL.md` before editing.
+
+## Local standards sources
+
+Use these files as project-local source of truth in addition to framework docs:
+
+- `.agents/skills/next-best-practices/SKILL.md`
+- `.agents/skills/frontend-implementation/SKILL.md`
+- `.agents/skills/component-quality-check/SKILL.md`
+- `.agents/skills/api-and-data-patterns/SKILL.md`
+- `.agents/skills/fetch-pattern/SKILL.md`
+
+If instructions conflict, prefer this order:
+1. Explicit user request
+2. `AGENTS.md`
+3. `.agents/skills/fetch-pattern/SKILL.md`
+4. `.agents/skills/*`
+5. External generic defaults
 
 ## Next.js 16 App Router rules
 
@@ -64,6 +83,14 @@ Follow these instructions before making changes, while implementing, and before 
 - Fetch server data in Server Components whenever possible.
 - Use Route Handlers for endpoint behavior (`src/app/**/route.ts`).
 - Keep client fetching for truly interactive/client-only use cases.
+
+## Critical implementation guardrails
+
+- Never leave placeholder production values in app metadata/config (for example `example.com`); use environment-driven values.
+- Avoid hard build-time dependence on flaky external APIs for demo content; include safe fallback behavior when needed.
+- Keep environment branching centralized (constants/config), not scattered across pages/components.
+- Ensure root error UIs remain styled and usable (`global-error.tsx` should not ship broken/unstyled fallback UX).
+- When adding or changing rules, keep `AGENTS.md`, `.cursor/rules`, and `.github/copilot-instructions.md` aligned.
 
 ## Quality gates (must pass)
 

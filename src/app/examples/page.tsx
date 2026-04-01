@@ -32,8 +32,7 @@ export default function ExamplesPage() {
     setIsLoading(true);
     try {
       const res = await fetch('/api/health');
-      const data = await res.json();
-      console.log('Health check:', data);
+      await res.json();
 
       // Fetch posts client-side
       const postsRes = await fetch(
