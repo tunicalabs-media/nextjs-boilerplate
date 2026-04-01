@@ -1,0 +1,16 @@
+---
+description: Enforce project agent standards and skill loading
+alwaysApply: true
+---
+
+# Agent Default Standards
+
+- Read `AGENTS.md` at the start of every task.
+- Use this repository's local standards as defaults, not generic framework defaults.
+- Load only the `.agents/skills/*` files relevant to the current task.
+- For data/fetch/metadata/API tasks, always read:
+  - `.agents/skills/fetch-pattern/SKILL.md`
+- Keep changes minimal, type-safe, and aligned with Next.js 16 App Router.
+- Do not leave placeholder metadata/config values (for example `example.com`) in production-oriented code.
+- Avoid brittle build-time demo fetches without fallback behavior.
+- Run quality checks after substantive changes: `npm run lint`, `npm run typecheck`, `npm run build`.

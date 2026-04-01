@@ -47,6 +47,13 @@ const eslintConfig = defineConfig([
         'warn',
         { prefer: 'type-imports' },
       ],
+      '@typescript-eslint/no-explicit-any': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-debugger': 'error',
+      eqeqeq: ['error', 'always'],
+      curly: ['error', 'all'],
+      'prefer-const': 'error',
+      'object-shorthand': 'error',
     },
   },
 

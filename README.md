@@ -119,6 +119,36 @@ Open [http://localhost:3000](http://localhost:3000) to view your application.
 - Keep shared UI in `src/components`, domain logic in `src/services`/`src/lib`
 - Ensure code passes lint, typecheck, and build before merging
 
+## Critical guardrails
+
+- Do not keep placeholder production values (for example `example.com`) in metadata/config.
+- Avoid build-time fragility from external demo APIs; use resilient fallbacks for non-critical demo data.
+- Keep environment branching in centralized config/constants instead of page-level ad hoc logic.
+- Keep `AGENTS.md`, `.cursor/rules`, and `.github/copilot-instructions.md` aligned when standards change.
+
+## Agent skills included
+
+This boilerplate includes project-level skills under `.agents/skills` to help coding agents follow your standards consistently:
+
+- `next-best-practices` - Next.js 16 implementation guidance and pitfalls
+- `frontend-implementation` - feature delivery workflow for this repo structure
+- `component-quality-check` - UI/component accessibility and consistency checklist
+- `api-and-data-patterns` - server/client data boundaries and route-handler patterns
+- `fetch-pattern` - required fetch/metadata/ISR conventions for data-layer work
+
+Tip: ask your coding agent to "use the `frontend-implementation` skill" (or another skill by name) before making changes.
+
+## Agent defaults and enforcement
+
+This repo includes default instruction files so major coding agents follow project rules automatically:
+
+- `AGENTS.md` - primary cross-agent rulebook (Codex/Cursor and other AGENTS-aware tools)
+- `.cursor/rules/*.mdc` - always-on Cursor rules
+- `.github/copilot-instructions.md` - GitHub Copilot repository instructions
+- `CLAUDE.md` - delegates to `AGENTS.md`
+
+Important: each tool decides how strongly it follows repository instructions, but this setup gives the best available default coverage.
+
 ## API example
 
 - `GET /api/health` returns JSON:
