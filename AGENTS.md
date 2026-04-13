@@ -39,6 +39,7 @@ Use these files as project-local source of truth in addition to framework docs:
 - `.agents/skills/fetch-pattern/SKILL.md`
 
 If instructions conflict, prefer this order:
+
 1. Explicit user request
 2. `AGENTS.md`
 3. `.agents/skills/fetch-pattern/SKILL.md`

@@ -33,26 +33,26 @@ src/
 ## 1. `constant.ts` — Environment-Based Config
 
 ```ts
-type envType = "production" | "staging";
+type envType = 'production' | 'staging';
 
 export const PROJECT_ENV: envType = process.env
   .NEXT_PUBLIC_PROJECT_ENV as envType;
 
 const API_URL_TEMP = () => {
-  if (PROJECT_ENV === "production") return "https://assets.oro.in";
-  if (PROJECT_ENV === "staging") return "http://4.213.141.223:3021";
-  return "https://assets.oro.in"; // fallback
+  if (PROJECT_ENV === 'production') return 'https://assets.oro.in';
+  if (PROJECT_ENV === 'staging') return 'http://4.213.141.223:3021';
+  return 'https://assets.oro.in'; // fallback
 };
 
 const SITE_URL_TEMP = () => {
-  if (PROJECT_ENV === "production") return "https://www.oro.in";
-  if (PROJECT_ENV === "staging") return "http://4.213.141.223:3022";
-  return "https://www.oro.in"; // fallback
+  if (PROJECT_ENV === 'production') return 'https://www.oro.in';
+  if (PROJECT_ENV === 'staging') return 'http://4.213.141.223:3022';
+  return 'https://www.oro.in'; // fallback
 };
 
 export const API_URL = API_URL_TEMP();
 export const SITE_URL = SITE_URL_TEMP();
-export const OG_URL = ""; // default OG image URL
+export const OG_URL = ''; // default OG image URL
 export const REVALIDATE_TIME = 60; // ISR revalidation in seconds
 ```
 
@@ -65,7 +65,7 @@ export const REVALIDATE_TIME = 60; // ISR revalidation in seconds
 ## 2. `apis/layoutApis.ts` — Shared Layout URL Constants
 
 ```ts
-import { API_URL } from "@/constant";
+import { API_URL } from '@/constant';
 
 export const FooterApi = `${API_URL}/api/footer?populate[Columns][populate][Links]=true&populate[SocialMediaLinks][populate][Icon][fields]=...`;
 export const NavApi = `${API_URL}/api/navbar?populate[Logo][fields]=...&populate[NavLinks]=true`;
@@ -81,7 +81,7 @@ export const DistributorFormApi = `${API_URL}/api/become-a-distributors`;
 ## 3. `apis/pageApis.ts` — Page URL Constants & Factories
 
 ```ts
-import { API_URL } from "@/constant";
+import { API_URL } from '@/constant';
 
 // Static pages: plain string constants
 export const HomePageApi = `${API_URL}/api/home?populate[Banner][populate][Media][fields]=...`;
@@ -122,8 +122,8 @@ export const StaticPageApi = (slug: string) =>
 ### 4a. Core helpers
 
 ```ts
-import { cache } from "react";
-import { REVALIDATE_TIME } from "@/constant";
+import { cache } from 'react';
+import { REVALIDATE_TIME } from '@/constant';
 
 type FetchOptions = RequestInit & {
   next?: { revalidate?: number };
@@ -282,7 +282,7 @@ export default async function CollectionPage({
 ### 6a. Types
 
 ```ts
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
 // Input to buildMetadata — all fields optional/nullable
 type MetadataInput = {
@@ -291,7 +291,7 @@ type MetadataInput = {
   canonicalUrl?: string | null;
   metaImage?: string | null; // resolved URL string
   metaImageAlt?: string | null;
-  ogType?: Metadata["openGraph"] extends { type?: infer T } ? T : never;
+  ogType?: Metadata['openGraph'] extends { type?: infer T } ? T : never;
   noindex?: boolean;
   nofollow?: boolean;
 };
@@ -323,7 +323,7 @@ type MapSeoToMetadataInput = {
   fallbackDescription?: string | null;
   defaultTitle?: string; // absolute last resort — set site-wide
   defaultDescription?: string;
-  ogType?: Metadata["openGraph"] extends { type?: infer T } ? T : never;
+  ogType?: Metadata['openGraph'] extends { type?: infer T } ? T : never;
   nofollow?: boolean;
   noindex?: boolean;
 };
@@ -335,10 +335,10 @@ type MapSeoToMetadataInput = {
 // Strips HTML tags (from CMS rich-text fields) and collapses whitespace.
 // Returns undefined for non-strings or empty results — safe to use with ||.
 function sanitizeMetadataValue(value?: string | null): string | undefined {
-  if (typeof value !== "string") return undefined;
+  if (typeof value !== 'string') return undefined;
   const sanitizedValue = value
-    .replace(/<[^>]*>/g, " ") // strip tags
-    .replace(/\s+/g, " ") // collapse whitespace
+    .replace(/<[^>]*>/g, ' ') // strip tags
+    .replace(/\s+/g, ' ') // collapse whitespace
     .trim();
   return sanitizedValue || undefined;
 }
@@ -349,7 +349,7 @@ function getCanonicalUrl(path: string): string {
   const baseUrl =
     sanitizeMetadataValue(process.env.NEXT_PUBLIC_SITE_URL) ||
     sanitizeMetadataValue(SITE_URL) ||
-    "http://localhost:3000";
+    'http://localhost:3000';
   return new URL(path, baseUrl).toString();
 }
 ```
@@ -359,7 +359,7 @@ function getCanonicalUrl(path: string): string {
 Accepts already-resolved strings and returns a fully typed Next.js `Metadata` object.
 
 ```ts
-import { OG_URL, PROJECT_ENV, SITE_URL } from "@/constant";
+import { OG_URL, PROJECT_ENV, SITE_URL } from '@/constant';
 
 export function buildMetadata({
   title,
@@ -375,7 +375,7 @@ export function buildMetadata({
   const imageUrl = metaImage || OG_URL || undefined;
 
   // On staging, always block indexing regardless of per-page flags
-  const isStaging = PROJECT_ENV === "staging";
+  const isStaging = PROJECT_ENV === 'staging';
   const shouldNoIndex = noindex || isStaging;
   const shouldNoFollow = nofollow || isStaging;
 
@@ -390,13 +390,13 @@ export function buildMetadata({
     openGraph: {
       title: title || undefined,
       description: description || undefined,
-      type: ogType || "website",
+      type: ogType || 'website',
       images: imageUrl
         ? [{ url: imageUrl, alt: metaImageAlt || title || undefined }]
         : undefined,
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title: title || undefined,
       description: description || undefined,
       images: imageUrl ? [imageUrl] : undefined,
@@ -411,7 +411,7 @@ export function buildMetadata({
 | ------------------------- | --------------------------------------------------------------------------------------------- | --- | ------------------------------------------------------ |
 | Staging auto-block        | `PROJECT_ENV === "staging"` forces `noindex + nofollow` regardless of call-site flags         |
 | OG image fallback         | Uses global `OG_URL` constant when no page image is provided                                  |
-| Undefined coercion        | All fields use `|| undefined` so Next.js omits empty `<meta>` tags entirely                   |
+| Undefined coercion        | All fields use `                                                                              |     | undefined`so Next.js omits empty`<meta>` tags entirely |
 | Robots omitted when clean | The `robots` field is `undefined` (not set) on production pages that don't opt in to blocking |
 
 ### 6d. `mapSeoToMetadata` — CMS field normaliser
