@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Roboto } from 'next/font/google';
 
+import { Agentation } from 'agentation';
+
 import { Footer } from '@/components/shared/footer';
 import { Header } from '@/components/shared/header';
 import { cn } from '@/lib/utils';
@@ -54,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-       data-scroll-behavior="smooth"
+      data-scroll-behavior="smooth"
       className={cn(
         'h-full',
         'antialiased',
@@ -67,6 +69,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        {process.env.NODE_ENV === 'development' && <Agentation />}
       </body>
     </html>
   );
