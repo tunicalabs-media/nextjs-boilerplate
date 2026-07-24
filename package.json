@@ -16,7 +16,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^1.24.0",
+    "lucide-react": "^1.26.0",
     "next": "^16.2.11",
     "radix-ui": "^1.6.2",
     "react": "19.2.4",
@@ -35,10 +35,10 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-simple-import-sort": "^13.0.0",
     "husky": "^9.1.7",
-    "lint-staged": "^17.0.8",
-    "prettier": "^3.9.4",
-    "prettier-plugin-tailwindcss": "^0.8.0",
-    "shadcn": "^4.13.0",
+    "lint-staged": "^17.2.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "shadcn": "^4.14.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
